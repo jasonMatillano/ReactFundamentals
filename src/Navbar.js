@@ -1,7 +1,7 @@
 function Navbar() {
 
     return (
-     <nav className="anvbar">
+     <nav className="navbar">
       <h1>The React App</h1>
       <div className="links">
         <a href="/" > Home </a>
