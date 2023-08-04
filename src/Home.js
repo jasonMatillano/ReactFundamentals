@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -25,14 +25,22 @@ const Home = () => {
             }
         ]
     );
+    
+    const [name, setName] = useState('mario');
 
     const handleDelete = (id) => {
         setBlogs(blogs.filter((blog) => blog.id!== id));
     }
 
+    useEffect(() => {
+        console.log('use effect ran');
+    },[name]);// function triggers when value of [parameter] is changed
+
     return ( 
      <div className="home">
       <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>
+      <button onClick={() => setName('luigi')}>Change Name</button>
+      <p>{name}</p>
      </div>
      );
 }

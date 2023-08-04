@@ -1,13 +1,10 @@
-// const Bloglist = (blogs,title,handleDelete) => {
-// other method
-const Bloglist = (props) => {
+// const Bloglist = (props) => {
+// const blogs = props.blogs;
+// const title = props.title;
+// const handleDelete = props.handleDelete;
+const Bloglist = ({blogs,title,handleDelete}) => {
 
-    const blogs = props.blogs;
-    const title = props.title;
-    const handleDelete = props.handleDelete;
-
-    console.log(blogs,title,handleDelete);
-
+    console.log(title);
 
     return (
         <div className="blog-list">
