@@ -30,7 +30,9 @@ const Home = () => {
 
     return ( 
      <div className="home">
-      <BlogList blogs={blogs} title="This is props title"/>
+      <BlogList blogs={blogs} title="All Blogs"/>
+      <h1>Bob Johnson's Blogs</h1>
+      <BlogList blogs={blogs.filter((blog) => blog.id === 3)} title="Bob Johnson's Blogs"/>
      </div>
      );
 }
