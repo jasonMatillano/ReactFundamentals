@@ -6,7 +6,8 @@ const Bloglist = ({blogs}) => {
         <div className="blog-list">
         {blogs.map(blog => (
             <div className="blog-preview" key={blog.id}>
-                <Link to={`/blogs/${blog.id}`}>
+                {/* this is route parameter sample */}
+                <Link to={`/blogs/${blog.id}`}> 
                     <h2>{blog.title}</h2>
                     <p>Written by {blog.author}</p>
                 </Link>
