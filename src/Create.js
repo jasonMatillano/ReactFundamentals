@@ -5,10 +5,17 @@ const Create = () => {
     const [body , setBody] = useState('')
     const [auhtor , setAuthor] = useState('mario')
 
+    // on submit save input data to blog object
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const blog = {title, body, auhtor}
+        console.log(blog)
+    }
+
     return (  
         <div className="create">
          <h2>Add a New Blog</h2>
-         <form>
+         <form onSubmit={handleSubmit}>
             <label> Blog Title</label>
             <input 
             type="text"
