@@ -1,30 +1,29 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
     const [title , setTitle] = useState('')
     const [body , setBody] = useState('')
     const [auhtor , setAuthor] = useState('mario')
     const [isPending, setIsPending] = useState(false)
-    const [feedback, setFeedback] = useState('')
+    const history = useHistory() // use history package to go back to previous page or any chosen page
 
-    const handleSubmit = (e) => {//function to handle the form submission
+    const handleSubmit = (e) => {
         e.preventDefault()
         const blog = {title, body, auhtor}
 
-        setIsPending(true)//set to true so that we can show the loading animation
+        setIsPending(true)
 
-        setTimeout(() => {//set timeout to 1 second so that we can see the loading animation
-            fetch('http://localhost:8000/blogs',{ //this is the url we are going to send the data to
+        setTimeout(() => {
+            fetch('http://localhost:8000/blogs',{ 
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(blog)
             }).then(() => {
                 console.log('blog added')
-                console.log(blog)
-                console.log(isPending)
                 setIsPending(false)
-                setFeedback('successfully added blog')
-                
+                //history.go(-1) // go back to previous page
+                history.push('/') // go back to previous page
             })
         }, 1000)
 
@@ -57,11 +56,7 @@ const Create = () => {
                 <option value="luigi">luigi</option>
             </select>
             {!isPending && <p><button onClick={handleSubmit}>Add Blog</button></p> }
-            {!isPending && <p><button onClick={() => setFeedback('')}>Clear</button></p> }
             {isPending && <button disabled>Adding Blog...</button>}
-
-            <p>{feedback}</p>
-    
             
          </form>
         </div>              
