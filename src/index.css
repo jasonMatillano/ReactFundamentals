@@ -52,3 +52,14 @@
 .blog-preview a {
   text-decoration: none;
 }
+
+/* blog detail page */
+.blog-details h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin: 20px 0;
+}
+
+.blog-details div {
+  margin: 20px 0;
+}
